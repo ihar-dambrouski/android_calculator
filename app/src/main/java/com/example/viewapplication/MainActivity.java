@@ -61,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
     public void onOperationClick(View v) {
         Button button = (Button) v;
         String op = button.getText().toString();
+        if(op.equals("C")) {
+            operationdField.setText("");
+            lastOperation = "";
+            numberField.setText("");
+            resultField.setText("");
+            operand = null;
+            return;
+        }
+
         String number = numberField.getText().toString();
 
         if(number.length() > 0) {
@@ -76,8 +85,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void performOperation(Double number, String operation) {
-
-        // если операнд ранее не был установлен (при вводе самой первой операции)
         if(operand ==null){
             operand = number;
         }
